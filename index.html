@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F6F0E4">
+<meta property="og:title" content="No Sé Dónde, Pero Sé Contigo">
+<meta property="og:description" content="Lucas & Mari · Nuestra canción">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='18' fill='%23F6F0E4' stroke='%23B08D57' stroke-width='2'/%3E%3Cpath d='M20 6 L23 20 L17 20 Z' fill='%238A3B34'/%3E%3C/svg%3E">
+<title>No Sé Dónde, Pero Sé Contigo</title>
+<meta name="description" content="Lucas & Mari · Nuestra canción">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: a single centered column, like a letter folded inside a passport; one player "boarding pass" card is the only boxed object. */
+:root{
+  color-scheme: light;
+  --paper:#F6F0E4;      /* warm ivory */
+  --sand:#EADFCB;       /* sand */
+  --sand-deep:#D9C9AC;
+  --ink:#2A2623;        /* charcoal */
+  --ink-soft:#6B625A;
+  --wine:#8A3B34;       /* muted burgundy/terracotta */
+  --gold:#B08D57;       /* subtle gold */
+  --card:#FBF7EF;
+
+  --display:"Cormorant Garamond","Cormorant",Garamond,"Times New Roman",serif;
+  --sans:"Jost","Avenir Next","Helvetica Neue",Arial,sans-serif;
+
+  --measure:34rem;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-weight:300;font-size:1rem;line-height:1.7;
+  padding-inline:20px;padding-block:0;
+  -webkit-font-smoothing:antialiased;
+  background-image:
+    radial-gradient(ellipse at 50% -10%, rgba(176,141,87,.10), transparent 60%),
+    radial-gradient(ellipse at 50% 110%, rgba(138,59,52,.06), transparent 55%);
+  background-attachment:fixed;
+}
+main{max-width:var(--measure);margin:0 auto;display:flex;flex-direction:column}
+section{padding-block:3.5rem}
+
+.eyebrow{
+  font-family:var(--sans);font-weight:500;font-size:.72rem;letter-spacing:.32em;
+  text-transform:uppercase;color:var(--ink-soft);margin:0;
+}
+.serif{font-family:var(--display)}
+.center{text-align:center}
+
+/* reveal */
+.reveal{animation:rise 1.2s cubic-bezier(.2,.7,.2,1) both}
+.d1{animation-delay:.15s}.d2{animation-delay:.35s}.d3{animation-delay:.55s}.d4{animation-delay:.8s}.d5{animation-delay:1.05s}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* ---------- HERO ---------- */
+.hero{padding-top:clamp(3rem,10vh,6rem);padding-bottom:1.5rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:1.1rem}
+.compass{width:34px;height:34px;color:var(--gold)}
+.compass .needle{transform-origin:20px 20px;animation:sway 7s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(10deg)}}
+h1{
+  font-family:var(--display);font-weight:500;margin:.2rem 0 0;
+  font-size:clamp(2.6rem,11vw,4.4rem);line-height:.98;letter-spacing:.01em;
+  text-wrap:balance;
+}
+h1 em{font-style:italic;font-weight:400;color:var(--wine)}
+.subtitle{font-family:var(--display);font-style:italic;font-size:1.35rem;margin:0;color:var(--ink)}
+.tagline{font-size:.92rem;color:var(--ink-soft);margin:0;max-width:22rem}
+
+.route{width:100%;max-width:22rem;height:64px;margin-top:.6rem;overflow:visible}
+.route .path{fill:none;stroke:var(--sand-deep);stroke-width:1.2;stroke-dasharray:3 5}
+.route .trace{fill:none;stroke:var(--gold);stroke-width:1.2;stroke-dasharray:3 5;
+  stroke-dashoffset:0;animation:drift 18s linear infinite}
+@keyframes drift{to{stroke-dashoffset:-160}}
+.route .pin{fill:var(--paper);stroke:var(--wine);stroke-width:1.2}
+.route text{font-family:var(--sans);font-size:9px;letter-spacing:.22em;fill:var(--ink-soft)}
+.route .plane{fill:var(--wine)}
+
+/* ---------- PLAYER ---------- */
+.player-wrap{padding-top:1.5rem}
+.player{
+  position:relative;background:var(--card);border:1px solid var(--sand);
+  border-radius:18px;padding:1.6rem 1.4rem 1.4rem;
+  box-shadow:0 1px 0 rgba(255,255,255,.7) inset,0 18px 40px -24px rgba(60,40,20,.35);
+  display:flex;flex-direction:column;gap:1.25rem;
+  animation:rise 1.3s .9s cubic-bezier(.2,.7,.2,1) both;
+}
+/* boarding-pass perforation */
+.player::before,.player::after{
+  content:"";position:absolute;top:5.1rem;width:18px;height:18px;border-radius:50%;
+  background:var(--paper);border:1px solid var(--sand);
+}
+.player::before{left:-10px;clip-path:inset(0 0 0 50%)}
+.player::after{right:-10px;clip-path:inset(0 50% 0 0)}
+.pass-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.track{min-width:0}
+.track .t{font-family:var(--display);font-size:1.45rem;line-height:1.15;font-weight:600;margin:0}
+.track .a{font-size:.85rem;color:var(--ink-soft);margin:.2rem 0 0;letter-spacing:.04em}
+.stamp{
+  flex:none;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--wine);
+  border:1px solid currentColor;border-radius:4px;padding:.3rem .45rem;line-height:1.3;
+  text-align:center;transform:rotate(-6deg);opacity:.75;margin-top:.2rem
+}
+.perf{border:none;border-top:1px dashed var(--sand-deep);margin:0}
+
+.play{
+  appearance:none;border:none;cursor:pointer;width:100%;
+  display:flex;align-items:center;justify-content:center;gap:.8rem;
+  min-height:60px;padding:.9rem 1.2rem;border-radius:999px;
+  background:var(--ink);color:var(--paper);
+  font-family:var(--sans);font-size:1rem;font-weight:400;letter-spacing:.04em;
+  transition:background .3s,transform .15s;
+  -webkit-tap-highlight-color:transparent;
+}
+.play:hover{background:var(--wine)}
+.play:active{transform:scale(.98)}
+.play:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.play svg{width:18px;height:18px;flex:none}
+.play[aria-pressed="true"]{background:var(--wine)}
+.play .ico-pause{display:none}
+.play[aria-pressed="true"] .ico-play{display:none}
+.play[aria-pressed="true"] .ico-pause{display:block}
+
+.bars{display:flex;align-items:flex-end;gap:3px;height:16px;flex:none}
+.bars i{width:3px;height:30%;background:currentColor;border-radius:2px;opacity:.85}
+.playing .bars i{animation:eq 1.1s ease-in-out infinite}
+.playing .bars i:nth-child(2){animation-delay:-.4s}
+.playing .bars i:nth-child(3){animation-delay:-.75s}
+.playing .bars i:nth-child(4){animation-delay:-.2s}
+@keyframes eq{0%,100%{height:25%}50%{height:100%}}
+.bars{display:none}
+.playing .bars{display:flex}
+
+.progress{display:flex;flex-direction:column;gap:.45rem}
+.times{display:flex;justify-content:space-between;font-size:.78rem;color:var(--ink-soft);
+  font-variant-numeric:tabular-nums;letter-spacing:.05em}
+
+input[type=range]{
+  -webkit-appearance:none;appearance:none;width:100%;background:transparent;margin:0;
+  height:28px;cursor:pointer;
+  --pct:0%;
+}
+input[type=range]:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:4px}
+input[type=range]::-webkit-slider-runnable-track{
+  height:3px;border-radius:3px;
+  background:linear-gradient(to right,var(--wine) var(--pct),var(--sand) var(--pct));
+}
+input[type=range]::-moz-range-track{height:3px;border-radius:3px;background:var(--sand)}
+input[type=range]::-moz-range-progress{height:3px;border-radius:3px;background:var(--wine)}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:16px;height:16px;border-radius:50%;margin-top:-6.5px;
+  background:var(--card);border:1.5px solid var(--wine);box-shadow:0 1px 4px rgba(0,0,0,.15)
+}
+input[type=range]::-moz-range-thumb{
+  width:14px;height:14px;border-radius:50%;background:var(--card);border:1.5px solid var(--wine)
+}
+
+.volume{display:flex;align-items:center;gap:.7rem;color:var(--ink-soft)}
+.volume svg{width:18px;height:18px;flex:none}
+.volume input{max-width:9rem}
+
+.listen-hint{margin:0;text-align:center;font-size:.78rem;color:var(--ink-soft);letter-spacing:.04em}
+
+/* ---------- PROSE ---------- */
+.ornament{display:flex;align-items:center;justify-content:center;gap:.9rem;color:var(--gold);margin:0 auto}
+.ornament::before,.ornament::after{content:"";height:1px;width:3.5rem;background:currentColor;opacity:.5}
+.ornament span{font-size:.7rem;letter-spacing:.3em}
+
+.intro p{
+  font-family:var(--display);font-size:1.32rem;line-height:1.55;margin:0;
+  text-align:center;text-wrap:pretty;
+}
+.intro{display:flex;flex-direction:column;gap:1.4rem}
+.intro .last{font-style:italic;color:var(--wine)}
+
+.story{display:flex;flex-direction:column;gap:1.2rem;text-align:center}
+h2{font-family:var(--display);font-weight:500;font-style:italic;font-size:1.9rem;margin:0;line-height:1.2}
+.story ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.15rem}
+.story li{font-size:1rem;color:var(--ink)}
+.story .lead{color:var(--ink-soft);margin:0}
+
+.countries{text-align:center;display:flex;flex-direction:column;align-items:center;gap:.8rem}
+.flags{display:flex;align-items:center;gap:1.1rem;font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft)}
+.flags .f{font-size:1rem;letter-spacing:0;margin-right:.35rem}
+.flags .sep{color:var(--gold)}
+.countries p{font-family:var(--display);font-style:italic;font-size:1.3rem;margin:0}
+
+/* ---------- QUOTE ---------- */
+.quote{padding-block:5rem;text-align:center;position:relative}
+.quote blockquote{margin:0}
+.quote .mark{font-family:var(--display);font-size:5rem;line-height:.4;color:var(--gold);opacity:.5;display:block;height:2rem}
+.quote p{
+  font-family:var(--display);font-weight:400;margin:0;
+  font-size:clamp(2.6rem,12vw,4.2rem);line-height:1.02;text-wrap:balance;
+}
+.quote p em{color:var(--wine)}
+
+/* ---------- DESTINATION ---------- */
+.dest{text-align:center;display:flex;flex-direction:column;gap:.7rem;align-items:center}
+.board{
+  display:inline-flex;flex-direction:column;gap:.3rem;padding:1.1rem 1.4rem;
+  border-top:1px solid var(--sand-deep);border-bottom:1px solid var(--sand-deep);
+}
+.dest .big{font-family:var(--display);font-size:1.75rem;line-height:1.2;margin:0}
+.dest .places{font-size:.82rem;color:var(--ink-soft);letter-spacing:.06em;margin:.4rem 0 0;max-width:20rem}
+
+/* ---------- LETTER ---------- */
+.letter{
+  font-family:var(--display);font-size:1.4rem;line-height:1.55;
+  display:flex;flex-direction:column;gap:1.3rem;padding-left:.2rem
+}
+.letter p{margin:0}
+.letter .salute{font-style:italic;font-size:1.7rem}
+.letter .sign{font-style:italic;font-size:1.7rem;color:var(--wine);text-align:right;margin-top:.4rem}
+.since{font-family:var(--sans);font-size:.8rem;letter-spacing:.35em;color:var(--ink-soft);text-align:center;margin-top:2rem}
+
+footer{
+  max-width:var(--measure);margin:0 auto;padding-block:2.5rem 3.5rem;
+  border-top:1px solid var(--sand);text-align:center;display:flex;flex-direction:column;gap:.3rem;
+}
+footer p{margin:0;font-size:.78rem;color:var(--ink-soft);letter-spacing:.05em}
+footer p.serif{font-size:1.05rem;font-style:italic;color:var(--ink)}
+
+@media (min-width:640px){
+  .player{padding:2rem 2rem 1.6rem}
+  .player::before,.player::after{top:5.6rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+
+</head>
+<body>
+<main>
+  <!-- 1. HERO -->
+  <header class="hero">
+    <svg class="compass reveal" viewBox="0 0 40 40" aria-hidden="true">
+      <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1"/>
+      <circle cx="20" cy="20" r="14" fill="none" stroke="currentColor" stroke-width=".5" stroke-dasharray="1 3"/>
+      <g class="needle">
+        <path d="M20 6 L23 20 L20 34 L17 20 Z" fill="none" stroke="currentColor" stroke-width="1"/>
+        <path d="M20 6 L23 20 L17 20 Z" fill="currentColor"/>
+      </g>
+      <circle cx="20" cy="20" r="1.4" fill="currentColor"/>
+    </svg>
+    <p class="eyebrow reveal d1">Lucas &amp; Mari</p>
+    <h1 class="reveal d2">No sé dónde,<br><em>pero sé contigo</em></h1>
+    <p class="subtitle reveal d3">Nuestra canción</p>
+    <p class="tagline reveal d4">Dos años de historias. Infinitos destinos por descubrir.</p>
+
+    <svg class="route reveal d5" viewBox="0 0 320 64" aria-hidden="true">
+      <path id="arc" class="path" d="M16 50 C 90 -6, 230 -6, 304 50"/>
+      <path class="trace" d="M16 50 C 90 -6, 230 -6, 304 50" opacity=".55"/>
+      <circle class="pin" cx="16" cy="50" r="3.5"/>
+      <circle class="pin" cx="304" cy="50" r="3.5"/>
+      <text x="16" y="63" text-anchor="middle">MX</text>
+      <text x="304" y="63" text-anchor="middle">BR</text>
+      <g class="plane">
+        <path d="M-5 0 L5 0 M1 -4 L5 0 L1 4" fill="none" stroke="var(--wine)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+        <animateMotion dur="14s" repeatCount="indefinite" rotate="auto" keyPoints="0;1;0" keyTimes="0;.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1">
+          <mpath href="#arc"/>
+        </animateMotion>
+      </g>
+    </svg>
+  </header>
+
+  <!-- 2. PLAYER -->
+  <section class="player-wrap" aria-label="Reproductor">
+    <!-- Para cambiar la canción: reemplaza el archivo song.mp3 (mismo nombre) y vuelve a publicar. -->
+    <audio id="song" src="song.mp3" preload="metadata" playsinline></audio>
+
+    <div class="player" id="player">
+      <div class="pass-head">
+        <div class="track">
+          <p class="eyebrow" style="font-size:.62rem;margin-bottom:.35rem">Canción original</p>
+          <p class="t">No Sé Dónde, Pero Sé Contigo</p>
+          <p class="a">Lucas &amp; Mari</p>
+        </div>
+        <div class="stamp" aria-hidden="true">MX ⇄ BR<br>2 años</div>
+      </div>
+
+      <hr class="perf">
+
+      <button class="play" id="playBtn" type="button" aria-pressed="false">
+        <svg class="ico-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg>
+        <svg class="ico-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4.5" width="4" height="15" rx="1" fill="currentColor"/><rect x="14" y="4.5" width="4" height="15" rx="1" fill="currentColor"/></svg>
+        <span id="playLabel">Escuchar nuestra canción</span>
+        <span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      </button>
+
+      <div class="progress">
+        <input type="range" id="seek" min="0" max="100" step="0.1" value="0" aria-label="Progreso de la canción">
+        <div class="times"><span id="cur">0:00</span><span id="dur">2:44</span></div>
+      </div>
+
+      <div class="volume" id="volRow">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <input type="range" id="vol" min="0" max="1" step="0.01" value="1" aria-label="Volumen">
+      </div>
+    </div>
+    <p class="listen-hint" style="margin-top:1rem">Mejor con audífonos ♪</p>
+  </section>
+
+  <!-- 3. INTRO -->
+  <section class="intro">
+    <div class="ornament" aria-hidden="true"><span>✦</span></div>
+    <p>Hay historias que empiezan sin que uno se dé cuenta.<br>
+    La nuestra empezó entre pasillos, clases y una bienvenida al Tec.</p>
+    <p>Dos países, dos idiomas y un montón de momentos después,
+    terminamos descubriendo que no siempre importa saber cuál es el destino.</p>
+    <p class="last">A veces basta saber con quién quieres llegar.</p>
+  </section>
+
+  <!-- 4. STORY OF THE SONG -->
+  <section class="story">
+    <p class="eyebrow">Notas de la canción</p>
+    <h2>Una canción para nosotros</h2>
+    <p class="lead">Esta canción nació de nuestra historia:</p>
+    <ul>
+      <li>de México y Brasil,</li>
+      <li>de aquel primer beso,</li>
+      <li>de las dudas de Mari,</li>
+      <li>de los sueños que todavía nos quedan,</li>
+      <li>y de todos los lugares a los que algún día llegaremos juntos.</li>
+    </ul>
+  </section>
+
+  <!-- 5. MX + BR -->
+  <section class="countries" style="padding-top:1rem">
+    <div class="flags"><span><span class="f">🇲🇽</span>México</span><span class="sep">·</span><span><span class="f">🇧🇷</span>Brasil</span></div>
+    <p>Dos idiomas. Una historia.</p>
+  </section>
+
+  <!-- 6. QUOTE -->
+  <section class="quote">
+    <blockquote>
+      <span class="mark" aria-hidden="true">“</span>
+      <p>No sé dónde,<br><em>pero sé contigo.</em></p>
+    </blockquote>
+  </section>
+
+  <!-- 7. DESTINATION -->
+  <section class="dest">
+    <p class="eyebrow">Próximo destino</p>
+    <div class="board">
+      <p class="big">Donde sea que nos lleve la vida.</p>
+    </div>
+    <p class="places">Italia · Brasil · México · y todos los lugares que todavía no conocemos</p>
+  </section>
+
+  <!-- 8. LETTER -->
+  <section>
+    <div class="ornament" aria-hidden="true" style="margin-bottom:2.5rem"><span>✦</span></div>
+    <div class="letter">
+      <p class="salute">Mari,</p>
+      <p>si estos fueron nuestros primeros dos años,<br>
+      no puedo esperar para descubrir todos los que vienen.</p>
+      <p>No sé dónde será.<br>Pero sé contigo.</p>
+      <p class="sign">Lucas ♡</p>
+    </div>
+    <p class="since">2024 → ∞</p>
+  </section>
+</main>
+
+<footer>
+  <p>Una canción para dos años de nosotros.</p>
+  <p class="serif">No sé dónde, pero sé contigo.</p>
+</footer>
+
+<script>
+(function(){
+  var a=document.getElementById('song'),
+      btn=document.getElementById('playBtn'),
+      label=document.getElementById('playLabel'),
+      seek=document.getElementById('seek'),
+      vol=document.getElementById('vol'),
+      volRow=document.getElementById('volRow'),
+      cur=document.getElementById('cur'),
+      dur=document.getElementById('dur'),
+      player=document.getElementById('player'),
+      seeking=false;
+
+  function fmt(s){ if(!isFinite(s)||s<0) s=0; var m=Math.floor(s/60), r=Math.floor(s%60); return m+':'+(r<10?'0':'')+r; }
+  function paint(el){ var p=(el.value-el.min)/(el.max-el.min)*100; el.style.setProperty('--pct',p+'%'); }
+
+  function setPlaying(on){
+    btn.setAttribute('aria-pressed',on?'true':'false');
+    player.classList.toggle('playing',on);
+    btn.classList.toggle('playing',on);
+    label.textContent = on ? 'Pausar' : (a.currentTime>0 && !a.ended ? 'Seguir escuchando' : 'Escuchar nuestra canción');
+  }
+
+  btn.addEventListener('click',function(){
+    if(a.paused){
+      var p=a.play();
+      if(p && p.catch) p.catch(function(){ label.textContent='Toca otra vez para escuchar'; });
+    } else a.pause();
+  });
+
+  a.addEventListener('play',function(){setPlaying(true)});
+  a.addEventListener('pause',function(){setPlaying(false)});
+  a.addEventListener('ended',function(){ a.currentTime=0; setPlaying(false); label.textContent='Escuchar otra vez'; });
+  a.addEventListener('loadedmetadata',function(){ dur.textContent=fmt(a.duration); });
+  a.addEventListener('timeupdate',function(){
+    if(seeking||!a.duration) return;
+    seek.value=(a.currentTime/a.duration)*100; paint(seek);
+    cur.textContent=fmt(a.currentTime);
+  });
+
+  seek.addEventListener('input',function(){
+    seeking=true; paint(seek);
+    if(a.duration) cur.textContent=fmt(seek.value/100*a.duration);
+  });
+  seek.addEventListener('change',function(){
+    if(a.duration) a.currentTime=seek.value/100*a.duration;
+    seeking=false;
+  });
+
+  /* Volume: iOS ignores programmatic volume, so hide the slider there. */
+  try{
+    a.volume=0.5;
+    if(Math.abs(a.volume-0.5)>0.01) volRow.hidden=true;
+    a.volume=1;
+  }catch(e){ volRow.hidden=true; }
+  if(/iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform==='MacIntel' && navigator.maxTouchPoints>1)) volRow.hidden=true;
+  vol.addEventListener('input',function(){ a.volume=+vol.value; paint(vol); });
+  paint(seek); paint(vol);
+
+  /* Lock-screen controls on phones */
+  if('mediaSession' in navigator){
+    try{
+      navigator.mediaSession.metadata=new MediaMetadata({title:'No Sé Dónde, Pero Sé Contigo',artist:'Lucas & Mari',album:'Nuestra canción'});
+    }catch(e){}
+  }
+})();
+</script>
+
+</body>
+</html>
